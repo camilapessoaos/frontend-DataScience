@@ -11,7 +11,6 @@
   let backendAvailable = false;
   let demoHistory = [];
   let chartDist = null;
-  let chartStress = null;
 
   const NUMERIC_INT_FIELDS = ["idade", "nivel_estresse", "nivel_vicio"];
   const NUMERIC_FLOAT_FIELDS = [
@@ -178,8 +177,6 @@
     return tr;
   }
 
-  function avg(arr){ return arr.length ? (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(1) : 0; }
-
   function renderCharts(records){
     const section = document.getElementById("dashboardSection");
     if(!records || records.length === 0){ section.style.display = "none"; return; }
@@ -196,30 +193,6 @@
         datasets: [{ data: [low, high], backgroundColor: ["#A3C13F", "#BA8B5C"], borderWidth: 0 }]
       },
       options: { cutout: "65%", plugins: { legend: { position: "bottom" } } }
-    });
-
-    const stressLow  = records.filter(r => r.prediction === 0).map(r => r.nivel_estresse);
-    const stressHigh = records.filter(r => r.prediction === 1).map(r => r.nivel_estresse);
-
-    if(chartStress) chartStress.destroy();
-    chartStress = new Chart(document.getElementById("chartStress"), {
-      type: "bar",
-      data: {
-        labels: ["Baixo risco", "Alto risco"],
-        datasets: [{
-          data: [avg(stressLow), avg(stressHigh)],
-          backgroundColor: ["#A3C13F", "#BA8B5C"],
-          borderRadius: 8,
-          borderWidth: 0
-        }]
-      },
-      options: {
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { min: 0, max: 10, grid: { color: "rgba(44,52,43,0.07)" } },
-          x: { grid: { display: false } }
-        }
-      }
     });
   }
 

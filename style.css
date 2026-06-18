@@ -397,11 +397,7 @@ tbody tr:hover{ background: var(--paper); }
 }
 
 .dashboard-panel{ margin-top: 40px; }
-.chart-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
+.chart-single{ max-width: 360px; margin: 0 auto; }
 .chart-card{
   background: var(--paper);
   border-radius: 12px;
@@ -412,10 +408,7 @@ tbody tr:hover{ background: var(--paper); }
   font-weight: 700;
   color: var(--ink-soft);
   margin: 0 0 16px;
-}
-
-@media (max-width: 880px){
-  .chart-grid{ grid-template-columns: 1fr; }
+  text-align: center;
 }
 
 footer{
