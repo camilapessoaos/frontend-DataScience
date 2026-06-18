@@ -10,7 +10,7 @@
 
   let backendAvailable = false;
   let demoHistory = [];
-  let chartDist = null;
+  let chartDist = null; // guarda o gráfico para poder destruir antes de recriar
 
   const NUMERIC_INT_FIELDS = ["idade", "nivel_estresse", "nivel_vicio"];
   const NUMERIC_FLOAT_FIELDS = [
@@ -179,13 +179,18 @@
 
   function renderCharts(records){
     const section = document.getElementById("dashboardSection");
+
+    // sem dados, mantém o dashboard oculto
     if(!records || records.length === 0){ section.style.display = "none"; return; }
     section.style.display = "block";
 
+    // conta quantas predições foram alto e baixo risco
     const high = records.filter(r => r.prediction === 1).length;
     const low = records.length - high;
 
+    // evita empilhar gráficos no mesmo canvas ao atualizar
     if(chartDist) chartDist.destroy();
+
     chartDist = new Chart(document.getElementById("chartDist"), {
       type: "doughnut",
       data: {
@@ -204,7 +209,7 @@
     }
     historyEmpty.style.display = "none";
     records.forEach((r) => historyBody.appendChild(buildHistoryRow(r)));
-    renderCharts(records);
+    renderCharts(records); // atualiza o gráfico junto com o histórico
   }
 
 

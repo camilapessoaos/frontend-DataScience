@@ -396,6 +396,7 @@ tbody tr:hover{ background: var(--paper); }
   font-size: 0.9rem;
 }
 
+/* estilos do dashboard */
 .dashboard-panel{ margin-top: 40px; }
 .chart-single{ max-width: 360px; margin: 0 auto; }
 .chart-card{

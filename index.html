@@ -263,6 +263,7 @@
       </div>
     </div>
 
+    <!-- dashboard fica oculto até ter pelo menos uma predição no histórico -->
     <div id="dashboardSection" class="panel dashboard-panel" style="display:none;">
       <div class="panel-head">
         <div>
@@ -273,6 +274,7 @@
       <div class="chart-single">
         <div class="chart-card">
           <p class="chart-title">Distribuição de risco</p>
+          <!-- o canvas é onde o Chart.js desenha o gráfico -->
           <canvas id="chartDist"></canvas>
         </div>
       </div>
@@ -284,6 +286,7 @@
     <div class="credits">Grupo: Arthur Bem, Camila Pessoa, Gustavo Koichi, Kauan Nicolas, Luiz Eduardo, Vinícius Trezena.</div>
   </footer>
 
+<!-- biblioteca Chart.js para gerar o gráfico do dashboard -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="script.js"></script>
 </body>
