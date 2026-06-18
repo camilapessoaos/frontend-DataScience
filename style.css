@@ -396,6 +396,28 @@ tbody tr:hover{ background: var(--paper); }
   font-size: 0.9rem;
 }
 
+.dashboard-panel{ margin-top: 40px; }
+.chart-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.chart-card{
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 20px;
+}
+.chart-title{
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+@media (max-width: 880px){
+  .chart-grid{ grid-template-columns: 1fr; }
+}
+
 footer{
   max-width: 1180px;
   margin: 0 auto;
