@@ -64,7 +64,7 @@ Se `status` vier como `"erro"` (ex.: modelo não carregado), o front exibe um al
   ]
 }
 ```
-O front desaninha cada item (`dados_entrada` + `predicao_ansiedade_alta` + `data_hora`) para montar a tabela de histórico, e inverte a ordem para mostrar o mais recente primeiro.
+O front desaninha cada item (`dados_entrada` + `predicao_ansiedade_alta` + `data_hora`) para montar a tabela de histórico, e inverte a ordem para mostrar os mais recentes primeiro.
 
 > ⚠️ Esse histórico fica em memória no back-end — reiniciar o servidor (`uvicorn`) apaga tudo. Isso é esperado, está documentado no README do back-end também.
 
